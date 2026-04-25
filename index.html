@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Flash Adverts | Digital Marketing & PR Agency</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #0066FF;
+            --dark-blue: #0044CC;
+            --accent-red: #FF3366;
+            --pure-white: #FFFFFF;
+            --light-bg: #F8FAFC;
+            --dark-text: #1E293B;
+            --gray-text: #64748B;
+            --gradient-blue: linear-gradient(135deg, #0066FF, #0044CC);
+            --gradient-red: linear-gradient(135deg, #FF3366, #FF0044);
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--gradient-blue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--primary-blue); }
+        .btn-nav {
+            background: var(--gradient-blue);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        @media (max-width: 768px) {
+            nav { flex-direction: column; gap: 1rem; padding: 1rem; }
+            .nav-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 10rem 5% 5rem;
+            position: relative;
+            background: linear-gradient(135deg, rgba(0,102,255,0.03), rgba(0,102,255,0.05));
+        }
+        .hero-content { flex: 1; max-width: 600px; }
+        .hero-badge {
+            display: inline-block;
+            background: var(--gradient-blue);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
+        }
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        .hero h1 span { background: var(--gradient-blue); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero .red-span { background: var(--gradient-red); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.1rem; color: var(--gray-text); margin-bottom: 2rem; }
+        .hero-image { flex: 1; text-align: center; }
+        .hero-image img { max-width: 100%; border-radius: 30px; }
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .btn-primary { background: var(--gradient-blue); color: white; box-shadow: 0 10px 25px rgba(0,102,255,0.3); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0,102,255,0.4); }
+        .btn-outline { border: 2px solid var(--primary-blue); color: var(--primary-blue); background: transparent; }
+        .btn-outline:hover { background: var(--primary-blue); color: white; }
+        @media (max-width: 968px) { .hero { flex-direction: column; text-align: center; gap: 3rem; } .hero h1 { font-size: 2.8rem; } }
+
+        /* Six Pillars Section - BLUE CARDS */
+        .pillars {
+            padding: 5rem 5%;
+            background: white;
+        }
+        .section-title {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .section-title span { background: var(--gradient-blue); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray-text);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .pillar-card {
+            background: linear-gradient(135deg, #0066FF, #0044CC);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 10px 25px rgba(0,102,255,0.2);
+        }
+        .pillar-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,102,255,0.3); }
+        .pillar-icon {
+            width: 70px;
+            height: 70px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+        .pillar-icon i { font-size: 2rem; color: var(--primary-blue); }
+        .pillar-card h3 { font-size: 1.3rem; margin-bottom: 1rem; color: white; }
+        .pillar-card p { color: rgba(255,255,255,0.9); font-size: 0.95rem; }
+        @media (max-width: 968px) { .pillars-grid { grid-template-columns: 1fr; } }
+
+        /* Bonus Section - BLUE */
+        .bonus {
+            background: linear-gradient(135deg, rgba(0,102,255,0.05), rgba(0,102,255,0.08));
+            padding: 4rem 5%;
+            text-align: center;
+        }
+        .bonus-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,102,255,0.1);
+            border: 1px solid rgba(0,102,255,0.2);
+        }
+        .bonus-card h3 { font-size: 1.8rem; margin-bottom: 1rem; }
+        .bonus-tag {
+            display: inline-block;
+            background: var(--gradient-blue);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        /* What You'll Experience */
+        .experience {
+            padding: 5rem 5%;
+            background: white;
+        }
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .exp-item { display: flex; gap: 1rem; align-items: flex-start; }
+        .exp-icon { width: 50px; height: 50px; background: var(--gradient-blue); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .exp-icon i { font-size: 1.5rem; color: white; }
+        .exp-text h4 { margin-bottom: 0.5rem; }
+        .exp-text p { color: var(--gray-text); font-size: 0.9rem; }
+        @media (max-width: 768px) { .experience-grid { grid-template-columns: 1fr; } }
+
+        /* Pricing Section - NAIRA */
+        .pricing {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, rgba(0,102,255,0.03), rgba(0,102,255,0.05));
+        }
+        .pricing-card {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,102,255,0.1);
+            border: 1px solid rgba(0,102,255,0.2);
+        }
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient-blue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 1rem 0;
+        }
+        .price small { font-size: 1rem; }
+        .old-price {
+            font-size: 1.3rem;
+            color: var(--gray-text);
+            text-decoration: line-through;
+        }
+        .save { color: var(--primary-blue); font-weight: 600; margin: 1rem 0; }
+        .feature-list { text-align: left; margin: 2rem 0; }
+        .feature-list li { list-style: none; margin: 0.8rem 0; display: flex; align-items: center; gap: 0.8rem; }
+        .feature-list li i { color: var(--primary-blue); }
+        .offer-end {
+            background: rgba(0,102,255,0.1);
+            padding: 0.5rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, #0A1929, #0A1929);
+            color: white;
+            padding: 5rem 5%;
+            text-align: center;
+        }
+        .cta h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .cta p { margin-bottom: 2rem; opacity: 0.8; }
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .form-row { display: flex; gap: 1rem; }
+        .form-container input, .form-container select {
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-family: inherit;
+            width: 100%;
+        }
+        .form-container button {
+            background: var(--gradient-blue);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) { .form-row { flex-direction: column; } }
+
+        /* Footer */
+        footer {
+            background: #0A1929;
+            color: rgba(255,255,255,0.7);
+            padding: 3rem 5%;
+            text-align: center;
+        }
+        .footer-content { max-width: 800px; margin: 0 auto; }
+        .footer-links { display: flex; justify-content: center; gap: 2rem; margin: 1.5rem 0; flex-wrap: wrap; }
+        .footer-links a { color: white; text-decoration: none; }
+        .footer-links a:hover { color: var(--primary-blue); }
+        .social-icons { display: flex; justify-content: center; gap: 1.5rem; margin: 1.5rem 0; }
+        .social-icons a { color: white; font-size: 1.5rem; transition: color 0.3s; }
+        .social-icons a:hover { color: var(--primary-blue); }
+        .contact-details p { margin: 0.5rem 0; }
+
+        @media (max-width: 768px) {
+            .section-title { font-size: 2rem; }
+            .hero h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">FLASH ADVERTS</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <a href="#cta" class="btn-nav">Free Consultation</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">⚡ DIGITAL INNOVATION AGENCY</div>
+            <h1>
+                Your brand is <span>evolving</span>.<br>
+                Your <span class="red-span">visibility</span> is just<br>
+                getting started.
+            </h1>
+            <p>A personalised digital marketing and PR program built around your business goals, not generic templates. Real results. Real support. At a price that works for you.</p>
+            <div>
+                <a href="#cta" class="btn btn-primary">BOOK YOUR FREE CONSULTATION</a>
+                <a href="#services" class="btn btn-outline" style="margin-left: 1rem;">View Services</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://via.placeholder.com/500x500/0066FF/FFFFFF?text=FLASH+ADVERTS" alt="Flash Adverts">
+        </div>
+    </section>
+
+    <!-- Services / Six Pillars - BLUE CARDS -->
+    <section id="services" class="pillars">
+        <h2 class="section-title">What <span>You'll Experience</span></h2>
+        <p class="section-subtitle">Six pillars of your brand transformation</p>
+        <div class="pillars-grid">
+            <div class="pillar-card">
+                <div class="pillar-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Digital Strategy</h3>
+                <p>Data-driven campaigns that target the right audience at the right time with the right message.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon"><i class="fas fa-bullhorn"></i></div>
+                <h3>PR & Media</h3>
+                <p>Strategic public relations that build your brand reputation and secure valuable media coverage.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon"><i class="fas fa-eye"></i></div>
+                <h3>Brand Visibility</h3>
+                <p>Get noticed by your target audience with proven visibility strategies that drive results.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon"><i class="fas fa-users"></i></div>
+                <h3>Community Growth</h3>
+                <p>Build a loyal community that advocates for your brand and drives organic growth.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon"><i class="fas fa-search"></i></div>
+                <h3>SEO Dominance</h3>
+                <p>Rank higher on search engines and attract organic traffic that converts into customers.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon"><i class="fas fa-headset"></i></div>
+                <h3>Ongoing Support</h3>
+                <p>Weekly check-ins and dedicated account management to ensure your success.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bonus Section - BLUE -->
+    <section class="bonus">
+        <div class="bonus-card">
+            <h3>Bonus: Free Strategy Session</h3>
+            <p>Every package includes a FREE 60-minute deep-dive strategy session where we map out your complete marketing roadmap for the next 6 months.</p>
+            <div class="bonus-tag">🎁 WORTH ₦375,000 - COMPLIMENTARY</div>
+        </div>
+    </section>
+
+    <!-- What You'll Experience Details -->
+    <section class="experience">
+        <h2 class="section-title">Everything your <span>brand needs</span> right now</h2>
+        <p class="section-subtitle">Digital marketing during growth phases changes everything — from how you reach customers to how you convert. This program works with your business, not a generic template.</p>
+        <div class="experience-grid">
+            <div class="exp-item">
+                <div class="exp-icon"><i class="fas fa-chart-simple"></i></div>
+                <div class="exp-text"><h4>Data-Driven Marketing</h4><p>Understand and optimize your campaigns with real-time analytics and targeted strategies.</p></div>
+            </div>
+            <div class="exp-item">
+                <div class="exp-icon"><i class="fas fa-newspaper"></i></div>
+                <div class="exp-text"><h4>Media Coverage</h4><p>Get featured in industry publications and build credibility with strategic PR placements.</p></div>
+            </div>
+            <div class="exp-item">
+                <div class="exp-icon"><i class="fas fa-bolt"></i></div>
+                <div class="exp-text"><h4>Renewed Visibility</h4><p>Combat low engagement with proven strategies that naturally boost your brand presence.</p></div>
+            </div>
+            <div class="exp-item">
+                <div class="exp-icon"><i class="fas fa-dumbbell"></i></div>
+                <div class="exp-text"><h4>Stronger Brand Identity</h4><p>Build a recognizable brand that customers trust and remember.</p></div>
+            </div>
+            <div class="exp-item">
+                <div class="exp-icon"><i class="fas fa-handshake"></i></div>
+                <div class="exp-text"><h4>Expert Guidance</h4><p>Receive ongoing support, monthly strategy sessions, and expert guidance for optimal results.</p></div>
+            </div>
+            <div class="exp-item">
+                <div class="exp-icon"><i class="fas fa-calendar-check"></i></div>
+                <div class="exp-text"><h4>Weekly Check-Ins</h4><p>Regular accountability touchpoints via email or call to celebrate wins and troubleshoot challenges.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section - IN NAIRA -->
+    <section id="pricing" class="pricing">
+        <div class="pricing-card">
+            <h3>Complete Marketing Package</h3>
+            <p>One-time investment for your full consultation, brand audit, and personalised Marketing + PR Program.</p>
+            <div class="price">₦269,000 <small>₦376,000</small></div>
+            <div class="old-price">Regular price ₦376,000</div>
+            <div class="save">🎯 Save ₦107,000</div>
+            <ul class="feature-list">
+                <li><i class="fas fa-check-circle"></i> Free 10–15 min discovery call</li>
+                <li><i class="fas fa-check-circle"></i> Personalised Marketing Strategy</li>
+                <li><i class="fas fa-check-circle"></i> PR & Media Outreach Plan</li>
+                <li><i class="fas fa-check-circle"></i> Weekly check-in (email or call)</li>
+                <li><i class="fas fa-check-circle"></i> Full Brand Audit & Analysis</li>
+                <li><i class="fas fa-check-circle"></i> FREE Strategy Resources</li>
+                <li><i class="fas fa-check-circle"></i> FREE PR Template Kit</li>
+            </ul>
+            <a href="#cta" class="btn btn-primary" style="width: 100%; text-align: center;">BOOK NOW →</a>
+        </div>
+    </section>
+
+    <!-- CTA / Form Section -->
+    <section id="cta" class="cta">
+        <h2>Ready to start feeling like <span style="color: #0066FF;">your brand again</span>?</h2>
+        <p>Book a free 10-minute chat and let's talk about what's possible for your business.</p>
+        <div class="form-container">
+            <div class="form-row">
+                <input type="text" id="firstName" placeholder="First name">
+                <input type="text" id="lastName" placeholder="Last name">
+            </div>
+            <input type="email" id="email" placeholder="Email address">
+            <input type="tel" id="phone" placeholder="Phone number">
+            <button id="submitBtn">YES! I WANT A FREE CONSULTATION</button>
+        </div>
+    </section>
+
+    <!-- Contact / Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <h3 style="color: white; margin-bottom: 1rem;">FLASH ADVERTS</h3>
+            <p>Part of Flash Adverts Digital Agency</p>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#cta">Free Consultation</a>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/flash_adverts_ng" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@flashadverts.com.ng" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://x.com/@Flashadverts_Ng" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <div class="contact-details" style="margin: 1.5rem 0;">
+                <p><i class="fas fa-phone"></i> 📞 09078555528</p>
+                <p><i class="fas fa-envelope"></i> ✉️ flashadverts@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> 📍 Lagos, Nigeria</p>
+            </div>
+            <p>&copy; 2026 Flash Adverts. All rights reserved. | Digital Marketing & PR Agency</p>
+            <p style="font-size: 0.8rem; margin-top: 1rem;">To cancel, simply send a written notice at least 2 weeks before your next payment date.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation
+        document.querySelectorAll('nav a, .footer-links a, .btn-nav').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Form submission - WhatsApp integration
+        document.getElementById('submitBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            
+            if (!firstName || !lastName || !email || !phone) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            const message = `Hello Flash Adverts!%0A%0A*New Consultation Request*%0A%0A*Name:* ${firstName} ${lastName}%0A*Email:* ${email}%0A*Phone:* ${phone}%0A%0AI'm interested in a free consultation.`;
+            window.open(`https://wa.me/2349078555528?text=${message}`, '_blank');
+        });
+    </script>
+</body>
+</html>
